@@ -1,32 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
 const Square = (props) => {
-  return <div className="square">{props.value}</div>;
+  return (
+    <button className="square" onClick={props.onClickEvent}>
+      {props.value}
+    </button>
+  );
 };
 
 const Board = () => {
-  const renderSquare = () => {
-    return <Square value="O" />;
+  const initialSquares = Array(9).fill(null);
+  const [squares, setSquares] = useState(initialSquares);
+
+  const renderSquare = (i) => {
+    return <Square value={squares[i]} onClickEvent={() => handleClick(i)} />;
+  };
+
+  const handleClick = (i) => {
+    const newSquares = [...squares];
+    newSquares[i] = "X";
+    setSquares(newSquares);
   };
   return (
     <div style={{ backgroundColor: "skyblue", margin: 10, padding: 20 }}>
       Board
       <div className="board-row">
-        {renderSquare()}
-        {renderSquare()}
-        {renderSquare()}
+        {renderSquare(0)}
+        {renderSquare(1)}
+        {renderSquare(2)}
       </div>
       <div className="board-row">
-        {renderSquare()}
-        {renderSquare()}
-        {renderSquare()}
+        {renderSquare(3)}
+        {renderSquare(4)}
+        {renderSquare(5)}
       </div>
       <div className="board-row">
-        {renderSquare()}
-        {renderSquare()}
-        {renderSquare()}
+        {renderSquare(6)}
+        {renderSquare(7)}
+        {renderSquare(8)}
       </div>
     </div>
   );
