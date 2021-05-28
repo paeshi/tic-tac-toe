@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(45, 135, 45);
+  background-color: rgb(220, 157, 47);
   color: white;
   margin: 20px;
   font-size: 2em;
@@ -9,13 +9,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 2em;
 }
 .board-row {
   display: flex;
   flex-flow: row nowrap;
 }
 .square {
-  background-color: darkgray;
+  background-color: rgb(86, 137, 192);
   color: white;
   border: 1px solid black;
   padding: 0;
@@ -26,5 +30,9 @@ body {
 }
 .square:focus {
   outline: none;
-  background-color: darkmagenta;
+  background-color: rgb(127, 202, 219);
+}
+.status {
+  margin: 20px;
+  font-size: 24px;
 }
